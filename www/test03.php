@@ -9,7 +9,7 @@ sleep(5);
 
 $count++;
 
-if ($count > 10)
+if ($count > 100)
 {
   error_log("${pid} FINISH ${count}");
   return;
@@ -40,8 +40,7 @@ do switch (curl_multi_select($mh, 10))
     {
       $stat = curl_multi_exec($mh, $running);
     } while ($stat === CURLM_CALL_MULTI_PERFORM);
-    //continue 2;
-    break 2;
+    continue 2;
   case 0:
     error_log("${pid} ***** ERROR TIME OUT *****");
     continue 2;
