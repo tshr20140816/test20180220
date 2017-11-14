@@ -26,9 +26,10 @@ do
   $stat = curl_multi_exec($mh, $running);
 } while ($stat === CURLM_CALL_MULTI_PERFORM);
 
-do switch (curl_multi_select($mh, 2))
+do switch (curl_multi_select($mh, 5))
 {
   case -1:
+    error_log(' ***** ERROR -1 *****');
     usleep(10);
     do
     {
@@ -36,13 +37,25 @@ do switch (curl_multi_select($mh, 2))
     } while ($stat === CURLM_CALL_MULTI_PERFORM);
     continue 2;
   case 0:
+    error_log(' ***** ERROR TIME OUT *****');
     continue 2;
   default:
+    error_log('CHECK POINT 0300');
     do
     {
+      error_log('CHECK POINT 0400');
       $stat = curl_multi_exec($mh, $running);
     } while ($stat === CURLM_CALL_MULTI_PERFORM);
-} while (1 === 0);
+    
+    do if ($raised = curl_multi_info_read($mh, $remains))
+    {
+      error_log('CHECK POINT 0500');
+      $info = curl_getinfo($raised['handle']);
+      $response = curl_multi_getcontent($raised['handle']);
+      curl_multi_remove_handle($mh, $raised['handle']);
+      curl_close($raised['handle']);
+    } while ($remains);
+} while ($running);
 
 curl_multi_close($mh);
 
