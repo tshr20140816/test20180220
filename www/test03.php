@@ -9,8 +9,8 @@ $count++;
 
 $target_url = getenv('URL');
 
-$res = file_get_contents($target_url . $count);
-error_log("${pid} LENGTH " . strlen($res));
+// $res = file_get_contents($target_url . $count);
+// error_log("${pid} LENGTH " . strlen($res));
 
 if ($count > 100)
 {
@@ -18,10 +18,24 @@ if ($count > 100)
   return;
 }
 
+$urls = array();
+for($i = 0; $i < 5; $i++)
+{
+  $urls[] = $target_url . (($count - 1) * 5 + $i + 1);
+}
+$urls[] = $url . '?c=' . $count . '&u=' . $url;
+
 $mh = curl_multi_init();
 
-$ch = curl_init($url . '?c=' . $count . '&u=' . $url);
-curl_multi_add_handle($mh, $ch);
+foreach($urls => $url)
+{
+  $ch = curl_init();
+  curl_setopt_array($ch, array(
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true
+    ));
+  curl_multi_add_handle($mh, $ch);
+}
 
 error_log("${pid} CHECK POINT 0100");
 
@@ -55,8 +69,10 @@ do switch (curl_multi_select($mh, 10))
     
     do if ($raised = curl_multi_info_read($mh, $remains))
     {
-      error_log('CHECK POINT 0500');
+      //error_log('CHECK POINT 0500');
       $info = curl_getinfo($raised['handle']);
+      $query_string = parse_url($info[url], PHP_URL_QUERY);
+      error_log("${pid} ${query_string}");
       $response = curl_multi_getcontent($raised['handle']);
       curl_multi_remove_handle($mh, $raised['handle']);
       curl_close($raised['handle']);
