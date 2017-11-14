@@ -31,7 +31,7 @@ do
 
 error_log("${pid} CHECK POINT 0200");
 
-do switch (curl_multi_select($mh, 5))
+do switch (curl_multi_select($mh, 30))
 {
   case -1:
     //error_log(' ***** ERROR -1 *****');
