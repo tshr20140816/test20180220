@@ -35,6 +35,13 @@ do switch (curl_multi_select($mh, 2))
       $stat = curl_multi_exec($mh, $running);
     } while ($stat === CURLM_CALL_MULTI_PERFORM);
     continue 2;
+  case 0:
+    continue 2;
+  default:
+    do
+    {
+      $stat = curl_multi_exec($mh, $running);
+    } while ($stat === CURLM_CALL_MULTI_PERFORM);
 } while (1 === 0);
 
 curl_multi_close($mh);
