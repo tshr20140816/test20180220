@@ -18,7 +18,7 @@ if ($count > 10)
 
 $mh = curl_multi_init();
 
-$ch = curl_init($url);
+$ch = curl_init($url . '?c=' . $count . '&u=' . $url);
 curl_multi_add_handle($mh, $ch);
 
 do
