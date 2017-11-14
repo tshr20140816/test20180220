@@ -3,7 +3,8 @@
   {
     "php": ">=7.1.0",
     "ext-pcntl": "*",
-    "ext-memcached": "*"
+    "ext-memcached": "*",
+    "ext-mbstring": "*"
   }
   ,
   "require-dev":
