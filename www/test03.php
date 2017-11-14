@@ -3,7 +3,7 @@ $pid = getmypid();
 $count = $_GET['c'];
 $url = $_GET['u'];
 
-error_log("${pid} START ${param}");
+error_log("${pid} START ${count}");
 
 sleep(5);
 
@@ -11,7 +11,7 @@ $count++;
 
 if ($count > 10)
 {
-  error_log("${pid} FINISH ${param}");
+  error_log("${pid} FINISH ${count}");
 }
 
 // file_get_contents($url . '?c=' . $count . '&u=' . $url);
@@ -63,6 +63,6 @@ do switch (curl_multi_select($mh, 5))
 
 curl_multi_close($mh);
 
-error_log("${pid} FINISH ${param}");
+error_log("${pid} FINISH ${count}");
 
 ?>
