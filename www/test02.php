@@ -22,12 +22,16 @@ foreach($urls as $url)
   curl_multi_add_handle($mh, $conn);
 }
 
+error_log('CHECK POINT 0100');
+
 $active = null;
-  
+
 do
 {
   $mrc = curl_multi_exec($mh, $active);
 } while ($mrc == CURLM_CALL_MULTI_PERFORM);
+
+error_log('CHECK POINT 0200');
 
 while ($active and $mrc == CURLM_OK)
 {
@@ -40,10 +44,14 @@ while ($active and $mrc == CURLM_OK)
   }
 }
 
+error_log('CHECK POINT 0300');
+
 if ($mrc != CURLM_OK)
 {
   error_log(' ***** ERROR *****');
 }
+
+error_log('CHECK POINT 0400');
 
 foreach($conns as $conn)
 {
@@ -52,6 +60,9 @@ foreach($conns as $conn)
   curl_close($conn);
 }
 
+error_log('CHECK POINT 0500');
+
 curl_multi_close($mh);
 
+error_log('CHECK POINT 0600');
 ?>
