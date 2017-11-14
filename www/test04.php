@@ -7,6 +7,6 @@ if ($pid == -1) {
     pcntl_wait($status);
 } else {
     // 子プロセスの場合
-    error_log("***** child process *****";
+    error_log("***** child process *****");
 }
 ?>
