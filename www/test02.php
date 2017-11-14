@@ -1,5 +1,7 @@
 <?php
 
+$time = time();
+
 $url = $_GET['u'];
 
 $urls = array();
@@ -72,5 +74,5 @@ error_log('CHECK POINT 0600');
 
 curl_multi_close($mh);
 
-error_log('CHECK POINT 0700');
+error_log('CHECK POINT 0700 ' . (time() - $time));
 ?>
