@@ -41,10 +41,15 @@ do switch (curl_multi_select($mh, 5))
 {
   case -1:
     error_log(' ***** ERROR -1 *****');
-    return;
+    usleep(10);
+    do
+    {
+      $stat = curl_multi_exec($mh, $running);
+    } while ($stat === CURLM_CALL_MULTI_PERFORM);
+    continue 2;
   case 0:
     error_log(' ***** ERROR TIME OUT *****');
-    return;
+    continue 2;
   default:
     error_log('CHECK POINT 0300');
     do
