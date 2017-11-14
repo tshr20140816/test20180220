@@ -5,17 +5,18 @@ $url = $_GET['u'];
 
 error_log("${pid} START ${count}");
 
-sleep(5);
-
 $count++;
+
+$target_url = getenv('URL');
+
+$res = file_get_contents($target_url . $count);
+error_log("${pid} LENGTH " . strlen($res));
 
 if ($count > 100)
 {
   error_log("${pid} FINISH ${count}");
   return;
 }
-
-// file_get_contents($url . '?c=' . $count . '&u=' . $url);
 
 $mh = curl_multi_init();
 
