@@ -31,7 +31,7 @@ do
 
 error_log("${pid} CHECK POINT 0200");
 
-do switch (curl_multi_select($mh, 30))
+do switch (curl_multi_select($mh, 10))
 {
   case -1:
     //error_log(' ***** ERROR -1 *****');
@@ -40,7 +40,8 @@ do switch (curl_multi_select($mh, 30))
     {
       $stat = curl_multi_exec($mh, $running);
     } while ($stat === CURLM_CALL_MULTI_PERFORM);
-    continue 2;
+    //continue 2;
+    break 2;
   case 0:
     error_log("${pid} ***** ERROR TIME OUT *****");
     continue 2;
