@@ -35,10 +35,13 @@ error_log('CHECK POINT 0200');
 
 while ($active and $mrc == CURLM_OK)
 {
+  error_log('CHECK POINT 0210');
   if (curl_multi_select($mh) != -1)
   {
+    error_log('CHECK POINT 0220');
     do
     {
+      error_log('CHECK POINT 0230');
       $mrc = curl_multi_exec($mh, $active);
     } while ($mrc == CURLM_CALL_MULTI_PERFORM);
   }
