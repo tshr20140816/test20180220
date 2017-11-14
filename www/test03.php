@@ -12,6 +12,7 @@ $count++;
 if ($count > 10)
 {
   error_log("${pid} FINISH ${count}");
+  return;
 }
 
 // file_get_contents($url . '?c=' . $count . '&u=' . $url);
