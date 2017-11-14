@@ -17,55 +17,55 @@ foreach($urls as $url)
 {
   error_log($url);
   
-  $conn = curl_init($url);
-  $conns[] = $conn;
-  curl_multi_add_handle($mh, $conn);
+  $ch = curl_init($url);
+  $chs[] = $ch;
+  curl_multi_add_handle($mh, $ch);
 }
 
 error_log('CHECK POINT 0100');
 
-$active = null;
-
 do
 {
-  $mrc = curl_multi_exec($mh, $active);
-} while ($mrc == CURLM_CALL_MULTI_PERFORM);
+  $stat = curl_multi_exec($mh, $running);
+} while ($stat === CURLM_CALL_MULTI_PERFORM);
+
+if ( ! $running || $stat !== CURLM_OK)
+{
+  error_log(' ***** ERROR *****');
+  return;
+}
 
 error_log('CHECK POINT 0200');
 
-while ($active and $mrc == CURLM_OK)
+do switch (curl_multi_select($mh, 5))
 {
-  error_log('CHECK POINT 0210');
-  if (curl_multi_select($mh) != -1)
-  {
-    error_log('CHECK POINT 0220');
+  case -1:
+    error_log(' ***** ERROR -1 *****');
+    return;
+  case 0:
+    error_log(' ***** ERROR TIME OUT *****');
+    return;
+  default:
+    error_log('CHECK POINT 0300');
     do
     {
-      error_log('CHECK POINT 0230');
-      $mrc = curl_multi_exec($mh, $active);
-    } while ($mrc == CURLM_CALL_MULTI_PERFORM);
-  }
-}
+      error_log('CHECK POINT 0400');
+      $stat = curl_multi_exec($mh, $running);
+    } while ($stat === CURLM_CALL_MULTI_PERFORM);
+    
+    do if ($raised = curl_multi_info_read($mh, $remains))
+    {
+      error_log('CHECK POINT 0500');
+      $info = curl_getinfo($raised['handle']);
+      $response = curl_multi_getcontent($raised['handle']);
+      curl_multi_remove_handle($mh, $raised['handle']);
+      curl_close($raised['handle']);
+    } while ($remains);
+} while ($running);
 
-error_log('CHECK POINT 0300');
-
-if ($mrc != CURLM_OK)
-{
-  error_log(' ***** ERROR *****');
-}
-
-error_log('CHECK POINT 0400');
-
-foreach($conns as $conn)
-{
-  curl_multi_getcontent($conn);
-  curl_multi_remove_handle($mh, $conn);
-  curl_close($conn);
-}
-
-error_log('CHECK POINT 0500');
+error_log('CHECK POINT 0600');
 
 curl_multi_close($mh);
 
-error_log('CHECK POINT 0600');
+error_log('CHECK POINT 0700');
 ?>
