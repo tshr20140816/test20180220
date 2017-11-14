@@ -11,11 +11,14 @@ for($i = 0; $i < 10; $i++)
 
 $mh = curl_multi_init();
 
+$conns = array();
+
 foreach($urls as $url)
 {
   error_log($url);
   
   $conn = curl_init($url);
+  $conns[] = $conn;
   curl_multi_add_handle($mh, $conn);
 }
 
@@ -40,6 +43,13 @@ while ($active and $mrc == CURLM_OK)
 if ($mrc != CURLM_OK)
 {
   error_log(' ***** ERROR *****');
+}
+
+foreach($conns as $conn)
+{
+  curl_multi_getcontent($conn);
+  curl_multi_remove_handle($mh, $conn);
+  curl_close($conn);
 }
 
 curl_multi_close($mh);
