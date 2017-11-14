@@ -34,7 +34,7 @@ do switch (curl_multi_select($mh, 2))
     {
       $stat = curl_multi_exec($mh, $running);
     } while ($stat === CURLM_CALL_MULTI_PERFORM);
-    continue 2:
+    continue 2;
 } while (1 === 0);
 
 curl_multi_close($mh);
