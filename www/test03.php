@@ -21,10 +21,14 @@ $mh = curl_multi_init();
 $ch = curl_init($url . '?c=' . $count . '&u=' . $url);
 curl_multi_add_handle($mh, $ch);
 
+error_log('CHECK POINT 0100');
+
 do
 {
   $stat = curl_multi_exec($mh, $running);
 } while ($stat === CURLM_CALL_MULTI_PERFORM);
+
+error_log('CHECK POINT 0200');
 
 do switch (curl_multi_select($mh, 5))
 {
