@@ -72,8 +72,8 @@ do switch (curl_multi_select($mh, 10))
       //error_log('CHECK POINT 0500');
       $info = curl_getinfo($raised['handle']);
       $query_string = parse_url($info[url], PHP_URL_QUERY);
-      error_log("${pid} ${query_string}");
       $response = curl_multi_getcontent($raised['handle']);
+      error_log("${pid} ${query_string} " strlen($response));
       curl_multi_remove_handle($mh, $raised['handle']);
       curl_close($raised['handle']);
     } while ($remains);
