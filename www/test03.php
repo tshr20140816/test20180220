@@ -27,7 +27,7 @@ $urls[] = $url . '?c=' . $count . '&u=' . $url;
 
 $mh = curl_multi_init();
 
-foreach($urls => $url)
+foreach($urls as $url)
 {
   $ch = curl_init();
   curl_setopt_array($ch, array(
