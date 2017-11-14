@@ -9,10 +9,35 @@ sleep(5);
 
 $count++;
 
-if ($count < 10)
+if ($count > 10)
 {
-  file_get_contents($url . '?c=' . $count . '&u=' . $url);
+  error_log("${pid} FINISH ${param}");
 }
+
+// file_get_contents($url . '?c=' . $count . '&u=' . $url);
+
+$mh = curl_multi_init();
+
+$ch = curl_init($url);
+curl_multi_add_handle($mh, $ch);
+
+do
+{
+  $stat = curl_multi_exec($mh, $running);
+} while ($stat === CURLM_CALL_MULTI_PERFORM);
+
+do switch (curl_multi_select($mh, 5))
+{
+  case -1:
+    usleep(10);
+    do
+    {
+      $stat = curl_multi_exec($mh, $running);
+    } while ($stat === CURLM_CALL_MULTI_PERFORM);
+    continue 2:
+} while (1 === 0);
+
+curl_multi_close($mh);
 
 error_log("${pid} FINISH ${param}");
 
