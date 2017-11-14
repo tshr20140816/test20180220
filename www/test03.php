@@ -26,7 +26,7 @@ do
   $stat = curl_multi_exec($mh, $running);
 } while ($stat === CURLM_CALL_MULTI_PERFORM);
 
-do switch (curl_multi_select($mh, 5))
+do switch (curl_multi_select($mh, 1))
 {
   case -1:
     usleep(10);
