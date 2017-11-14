@@ -1,21 +1,17 @@
 {
   "require":
   {
-    "php": ">=7.1.0"
-  }
-  ,
-  "require-dev":
-  {
-    "heroku/heroku-buildpack-php": "*"
-  }
-  ,
-  "require":
-  {
+    "php": ">=7.1.0",
     "ext-pcntl": "*",
     "ext-memcached": "*",
     "ext-mbstring": "*",
     "ext-gd": "*",
     "ext-exif": "*"
+  }
+  ,
+  "require-dev":
+  {
+    "heroku/heroku-buildpack-php": "*"
   }
   ,
   "scripts":
