@@ -1,9 +1,9 @@
 <?php
 
-error_log("${pid} START ${param}");
-
-$param = $_GET['p'];
 $pid = getmypid();
+$param = $_GET['p'];
+
+error_log("${pid} START ${param}");
 
 sleep(5);
 
