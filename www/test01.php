@@ -10,7 +10,7 @@ $pos = strpos($res, '</tbody>');
 
 $res = substr($res, 0, $pos);
 
-$res = preg_replace('/<.+?>/', '\n', $res);
+$res = preg_replace('/<.+?>/', "\n", $res);
 
 error_log($res);
 
