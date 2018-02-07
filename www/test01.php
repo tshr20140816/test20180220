@@ -12,6 +12,8 @@ $res = substr($res, 0, $pos);
 
 $res = preg_replace('/<.+?>/', "\n", $res);
 
+$res = preg_replace('/(\n|\r|\r\n)+/us',"\n",$res);
+
 error_log($res);
 
 ?>
