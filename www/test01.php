@@ -6,6 +6,9 @@ $pos_start = strpos($res, '<b>IP Whois Information');
 
 $pos_end = strpos(substr($res, $pos_start), '</tbody>');
 
+error_log($pos_start);
+error_log($pos_end);
+
 error_log(substr($res, $pos_start, $pos_end - $pos_start));
 
 ?>
