@@ -8,6 +8,10 @@ $res = substr($res, $pos);
 
 $pos = strpos($res, '</tbody>');
 
-error_log(substr($res, 0, $pos));
+$res = substr($res, 0, $pos);
+
+$res = preg_replace('/<.+?>/', '\n', $res);
+
+error_log($res);
 
 ?>
