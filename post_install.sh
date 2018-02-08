@@ -14,10 +14,16 @@ gzip -c tt-rss.css > tt-rss.css.gz
 
 popd
 
-wget https://cirt.net/nikto/nikto-2.1.5.tar.gz
-tar xvfz nikto-2.1.5.tar.gz
-pushd nikto-*
-perl ./nikto.pl -update
-popd
+wget https://curl.haxx.se/download/curl-7.58.0.tar.xz
+tar xf curl-7.58.0.tar.xz
+cd curl*
+./configure
+
+# nikto
+# wget https://cirt.net/nikto/nikto-2.1.5.tar.gz
+# tar xvfz nikto-2.1.5.tar.gz
+# pushd nikto-*
+# perl ./nikto.pl -update
+# popd
 
 date
