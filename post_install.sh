@@ -17,7 +17,8 @@ cd httpd/srclib
 ls -lang
 
 git clone --depth 1 https://github.com/apache/apr.git
-# svn co http://svn.apache.org/repos/asf/apr/apr/trunk srclib/apr
+cd apr
+
 ./buildconf
 
 ./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http
