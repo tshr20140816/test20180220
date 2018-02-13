@@ -12,8 +12,9 @@ date
 # popd
 
 git clone --depth 1 -b 2.4.x https://github.com/apache/httpd.git
+
+cd httpd
 ls -lang
-cd ../httpd-2.4.x/
 # svn co http://svn.apache.org/repos/asf/apr/apr/trunk srclib/apr
 # ./buildconf
 
