@@ -4,26 +4,18 @@ set -x
 
 date
 
-pushd www
-gzip -c test.css > test.css.gz
-# rm -f test.css
-
-wget https://git.tt-rss.org/fox/tt-rss/raw/17.4/css/tt-rss.css
-gzip -c tt-rss.css > tt-rss.css.gz
-# rm tt-rss.css
-
-popd
-
-wget https://curl.haxx.se/download/curl-7.58.0.tar.xz
-tar xf curl-7.58.0.tar.xz
-cd curl*
-./configure --help
-
 # nikto
 # wget https://cirt.net/nikto/nikto-2.1.5.tar.gz
 # tar xvfz nikto-2.1.5.tar.gz
 # pushd nikto-*
 # perl ./nikto.pl -update
 # popd
+
+svn checkout http://svn.apache.org/repos/asf/httpd/httpd/branches/2.4.x httpd-2.4.x
+cd ../httpd-2.4.x/
+svn co http://svn.apache.org/repos/asf/apr/apr/trunk srclib/apr
+./buildconf
+
+./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http
 
 date
