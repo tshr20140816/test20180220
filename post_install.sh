@@ -11,10 +11,11 @@ date
 # perl ./nikto.pl -update
 # popd
 
-svn checkout http://svn.apache.org/repos/asf/httpd/httpd/branches/2.4.x httpd-2.4.x
+git clone --depth 1 -b 2.4.x https://github.com/apache/httpd.git
+ls -lang
 cd ../httpd-2.4.x/
-svn co http://svn.apache.org/repos/asf/apr/apr/trunk srclib/apr
-./buildconf
+# svn co http://svn.apache.org/repos/asf/apr/apr/trunk srclib/apr
+# ./buildconf
 
 ./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http
 
