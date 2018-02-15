@@ -33,9 +33,9 @@ ls -lang
 git clone --depth 1 https://github.com/apache/apr.git
 cd apr
 
-printenv
+# printenv
 
-exit
+export PATH="/tmp/libtool-2.4.6/bin:$PATH"
 
 ./buildconf --help
 ./buildconf
