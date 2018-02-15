@@ -43,7 +43,7 @@ export PATH="/tmp/libtool/bin:$PATH"
 
 pwd
 
-cd ..
+cd ../..
 
 pwd
 
