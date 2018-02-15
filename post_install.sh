@@ -50,9 +50,11 @@ export PATH="/tmp/usr/bin:$PATH"
 ./buildconf --help
 ./buildconf
 
+ls -lang /tmp/usr
+ls -lang /tmp/usr/bin
 ls -lang
 
 ./configure  --help
-./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http
+./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr/bin
 
 date
