@@ -15,25 +15,21 @@ wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0
 tar xf nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
 ./configure --help
-./configure --prefix=/tmp/nghttp2/
+./configure --prefix=/tmp/usr/
 
 make -j4
+make install
 
 cd ~
-
-exit
 
 wget http://ftp.jaist.ac.jp/pub/GNU/libtool/libtool-2.4.6.tar.xz
 tar xf libtool-2.4.6.tar.xz
 
 cd libtool-2.4.6
-ls -lang
 
-./configure --prefix=/tmp/libtool/
+./configure --prefix=/tmp/usr/
 make -j4
 make install
-
-ls -lang /tmp/libtool/bin
 
 cd ~
 
@@ -49,7 +45,7 @@ pwd
 
 # printenv
 
-export PATH="/tmp/libtool/bin:$PATH"
+export PATH="/tmp/usr/bin:$PATH"
 
 ./buildconf --help
 ./buildconf
