@@ -78,4 +78,13 @@ make install
 cd ~
 rm -rf apr-util-1.6.1
 
+wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz
+tar xf httpd-2.4.29.tar.gz
+rm httpd-2.4.29.tar.gz
+cd httpd-2.4.29
+./configure --help
+./configure --prefix=/tmp/usr --with-apr=/tmp/usr
+# make -j$(grep -c -e processor /proc/cpuinfo)
+# make install
+
 date
