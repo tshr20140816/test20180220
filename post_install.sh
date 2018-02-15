@@ -11,6 +11,8 @@ wget https://${APP_NAME}.herokuapp.com/usr.zip
 
 unzip usr.zip
 
+cd usr
+
 ls -lang
 
 date
