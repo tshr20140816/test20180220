@@ -13,7 +13,13 @@ date
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
-ls -lang nghttp2*
+cd nghttp2-1.30.0
+./configure --help
+./configure --prefix=/tmp/nghttp2/
+
+make -j4
+
+cd ~
 
 exit
 
