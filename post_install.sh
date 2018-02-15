@@ -13,7 +13,7 @@ tar xf c-ares-1.13.0.tar.gz
 rm c-ares-1.13.0.tar.gz
 cd c-ares-1.13.0
 ./configure --help
-./configure --prefix=/tmp/usr/
+./configure --prefix=/tmp/usr
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
@@ -27,7 +27,7 @@ tar xf jansson-2.11.tar.bz2
 rm jansson-2.11.tar.bz2
 cd jansson-2.11
 ./configure --help
-./configure --prefix=/tmp/usr/
+./configure --prefix=/tmp/usr
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
@@ -45,7 +45,7 @@ cd nghttp2-1.30.0
 
 LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
 JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
-./configure --prefix=/tmp/usr/ --disable-examples
+./configure --prefix=/tmp/usr --disable-examples
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
@@ -53,5 +53,29 @@ ls -Rlang /tmp/usr/
 
 cd ~
 rm -rf nghttp2-1.30.0
+
+wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
+tar xf apr-1.6.3.tar.bz2
+rm apr-1.6.3.tar.bz2
+cd apr-1.6.3
+./configure --help
+./configure --prefix=/tmp/usr
+make -j$(grep -c -e processor /proc/cpuinfo)
+make install
+
+cd ~
+rm -rf apr-1.6.3
+
+wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2
+tar xf apr-util-1.6.1.tar.bz2
+rm apr-util-1.6.1.tar.bz2
+cd apr-util-1.6.1
+./configure --help
+./configure --prefix=/tmp/usr
+make -j$(grep -c -e processor /proc/cpuinfo)
+make install
+
+cd ~
+rm -rf apr-util-1.6.1
 
 date
