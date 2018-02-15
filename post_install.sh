@@ -11,6 +11,16 @@ date
 # perl ./nikto.pl -update
 # popd
 
+wget https://www.openssl.org/source/openssl-1.0.2n.tar.gz
+tar xf openssl-1.0.2n.tar.gz
+cd openssl-1.0.2n
+./configure --help
+./configure --prefix=/tmp/usr/
+make -j$(grep -c -e processor /proc/cpuinfo)
+make install
+
+exit
+
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
