@@ -35,7 +35,7 @@ cd apr
 
 # printenv
 
-export PATH="/tmp/libtool-2.4.6/bin:$PATH"
+export PATH="/tmp/libtool/bin:$PATH"
 
 ./buildconf --help
 ./buildconf
