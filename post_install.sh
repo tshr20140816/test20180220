@@ -17,6 +17,8 @@ tar xf libtool-2.4.6.tar.xz
 cd libtool-2.4.6
 ls -lang
 
+./configure
+
 exit
 
 git clone --depth 1 -b 2.4.x https://github.com/apache/httpd.git
