@@ -40,8 +40,6 @@ export PATH="/tmp/libtool/bin:$PATH"
 ./buildconf --help
 ./buildconf
 
-exit
-
 ./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http
 
 date
