@@ -4,6 +4,6 @@ set -x
 
 date
 
-openssl --version
+openssl version
 
 date
