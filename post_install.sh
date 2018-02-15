@@ -21,7 +21,7 @@ ls -lang
 make -j4
 make install
 
-ls -lang /tmp/libtool/
+ls -lang /tmp/libtool/bin
 
 cd ~
 
