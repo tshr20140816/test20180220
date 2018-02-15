@@ -20,6 +20,10 @@ cd nghttp2-1.30.0
 make -j4
 make install
 
+ls -lang /tmp/usr/
+
+exit
+
 cd ~
 
 wget http://ftp.jaist.ac.jp/pub/GNU/libtool/libtool-2.4.6.tar.xz
