@@ -11,6 +11,12 @@ date
 # perl ./nikto.pl -update
 # popd
 
+wget http://ftp.jaist.ac.jp/pub/GNU/libtool/libtool-2.4.6.tar.xz
+tar xf libtool-2.4.6.tar.xz
+ls -lang
+
+exit
+
 git clone --depth 1 -b 2.4.x https://github.com/apache/httpd.git
 
 cd httpd/srclib
