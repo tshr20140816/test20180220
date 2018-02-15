@@ -21,6 +21,9 @@ ls -lang
 make -j8
 make install
 
+date
+exit
+
 cd ~
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
