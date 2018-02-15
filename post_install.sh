@@ -23,7 +23,7 @@ make install
 
 ls -lang /tmp/libtool/
 
-exit
+cd ~
 
 git clone --depth 1 -b 2.4.x https://github.com/apache/httpd.git
 
