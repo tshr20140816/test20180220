@@ -22,8 +22,6 @@ make install
 
 ls -Rlang /tmp/usr/
 
-exit
-
 cd ~
 
 wget http://ftp.jaist.ac.jp/pub/GNU/libtool/libtool-2.4.6.tar.xz
@@ -59,6 +57,6 @@ ls -lang /tmp/usr/bin
 ls -lang
 
 ./configure  --help
-./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr/bin
+./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr/lib
 
 date
