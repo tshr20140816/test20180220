@@ -11,6 +11,12 @@ date
 # perl ./nikto.pl -update
 # popd
 
+wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
+tar xf nghttp2-1.30.0.tar.xz
+ls -lang nghttp2*
+
+exit
+
 wget http://ftp.jaist.ac.jp/pub/GNU/libtool/libtool-2.4.6.tar.xz
 tar xf libtool-2.4.6.tar.xz
 
