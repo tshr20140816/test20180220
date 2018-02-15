@@ -15,10 +15,11 @@ wget https://www.openssl.org/source/openssl-1.0.2n.tar.gz
 tar xf openssl-1.0.2n.tar.gz
 cd openssl-1.0.2n
 ls -lang
-# ./config --help
-# ./config --prefix=/tmp/usr/
+./config --help
+./config --prefix=/tmp/usr --mandir=/dev/null
 # make -j$(grep -c -e processor /proc/cpuinfo)
-# make install
+make -j8
+make install
 
 cd ~
 
