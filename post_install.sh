@@ -21,6 +21,7 @@ make -j4
 make install
 
 ls -lang /tmp/usr/
+ls -lang /tmp/usr/bin
 
 exit
 
