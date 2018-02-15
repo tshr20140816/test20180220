@@ -4,9 +4,7 @@ set -x
 
 date
 
-ls -lang
-pwd
-exit
+export HOME2=${PWD}
 
 openssl version
 
@@ -21,7 +19,7 @@ cd c-ares-1.13.0
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ~
+cd ${HOME2}
 rm -rf c-ares-1.13.0
 
 wait
@@ -35,7 +33,7 @@ cd jansson-2.11
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ~
+cd ${HOME2}
 rm -rf jansson-2.11
 
 export PATH="/tmp/usr/bin:$PATH"
@@ -55,7 +53,7 @@ make install
 
 ls -Rlang /tmp/usr/
 
-cd ~
+cd ${HOME2}
 rm -rf nghttp2-1.30.0
 
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
@@ -67,7 +65,7 @@ cd apr-1.6.3
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ~
+cd ${HOME2}
 rm -rf apr-1.6.3
 
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2
@@ -79,17 +77,14 @@ cd apr-util-1.6.1
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ~
+cd ${HOME2}
 rm -rf apr-util-1.6.1
 
 cd /tmp
 zip -r usr.zip ./usr
-cp usr.zip ~/www/
-ls -lang ~/
-ls -lang ~/www/
-ls -lang
+cp usr.zip ${HOME2}/www/
 
-cd ~
+cd ${HOME2}
 
 exit
 
