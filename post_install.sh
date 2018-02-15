@@ -52,8 +52,7 @@ export PATH="/tmp/usr/bin:$PATH"
 ./buildconf --help
 ./buildconf
 
-ls -lang /tmp/usr
-ls -lang /tmp/usr/bin
+ls -Rlang /tmp/usr/
 ls -lang
 
 ./configure  --help
