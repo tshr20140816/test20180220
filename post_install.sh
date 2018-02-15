@@ -33,6 +33,7 @@ tar xf nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
 ./configure --help
 
+LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
 JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
 ./configure --prefix=/tmp/usr/
 # make -j
