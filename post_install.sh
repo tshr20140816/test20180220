@@ -33,7 +33,10 @@ ls -lang
 git clone --depth 1 https://github.com/apache/apr.git
 cd apr
 
+./buildconf --help
 ./buildconf
+
+exit
 
 ./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http
 
