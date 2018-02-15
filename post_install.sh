@@ -17,7 +17,7 @@ cd nghttp2-1.30.0
 ./configure --help
 ./configure --prefix=/tmp/usr/
 
-make -j4
+make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 ls -Rlang /tmp/usr/
@@ -30,7 +30,7 @@ tar xf libtool-2.4.6.tar.xz
 cd libtool-2.4.6
 
 ./configure --prefix=/tmp/usr/
-make -j4
+make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ~
@@ -58,4 +58,5 @@ ls -lang
 ./configure  --help
 ./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr
 
+# make -j$(grep -c -e processor /proc/cpuinfo)
 date
