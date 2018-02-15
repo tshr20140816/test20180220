@@ -19,6 +19,9 @@ ls -lang
 
 ./configure --prefix=/tmp/libtool/
 make -j4
+make install
+
+ls -lang /tmp/libtool/
 
 exit
 
