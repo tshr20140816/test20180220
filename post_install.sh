@@ -6,6 +6,23 @@ date
 
 export HOME2=${PWD}
 
+wget https://www.samba.org/ftp/ccache/ccache-3.3.4.tar.gz
+tar xf ccache-3.3.4.tar.gz
+cd ccache-3.3.4
+./configure --prefix=${HOME2}/usr/local
+make -j$(grep -c -e processor /proc/cpuinfo)
+make install
+
+cd ${HOME2}/usr/local/bin
+ln -s ccache gcc
+ln -s ccache g++
+ln -s ccache cc
+ln -s ccache c++
+
+export CCACHE_DIR=${HOME2}/ccache
+
+cd ${HOME2}
+
 openssl version
 
 wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2 &
@@ -86,6 +103,9 @@ cp usr.zip ${HOME2}/www/
 
 cd ${HOME2}
 
+zip -9r ccache_cache.zip ./ccache
+mv ccache_cache.zip ./www/
+  
 exit
 
 wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz
