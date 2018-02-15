@@ -33,6 +33,10 @@ ls -lang
 git clone --depth 1 https://github.com/apache/apr.git
 cd apr
 
+printenv
+
+exit
+
 ./buildconf --help
 ./buildconf
 
