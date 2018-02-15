@@ -18,11 +18,10 @@ ls -lang
 ./config --help
 ./config --prefix=/tmp/usr
 # make -j$(grep -c -e processor /proc/cpuinfo)
-make -j8
+make -j16
 make install
 
 date
-exit
 
 cd ~
 
