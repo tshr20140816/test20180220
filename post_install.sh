@@ -16,15 +16,27 @@ make install
 
 cd ~
 
+wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
+tar xf jansson-2.11.tar.bz2
+cd jansson-2.11
+./configure --help
+./configure --prefix=/tmp/usr/
+make -j
+make install
+
+cd ~
+
 export PATH="/tmp/usr/bin:$PATH"
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
 ./configure --help
+
+JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
 ./configure --prefix=/tmp/usr/
-make -j
-make install
+# make -j
+# make install
 
 ls -Rlang /tmp/usr/
 
