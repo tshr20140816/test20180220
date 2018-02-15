@@ -56,7 +56,10 @@ ls -Rlang /tmp/usr/
 ls -lang
 
 ./configure  --help
-./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr
+./configure  --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr --prefix=/tmp/usr2
 
-# make -j$(grep -c -e processor /proc/cpuinfo)
+make -j$(grep -c -e processor /proc/cpuinfo)
+
+make install
+
 date
