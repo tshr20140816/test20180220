@@ -4,6 +4,8 @@ set -x
 
 date
 
+ls -lang
+
 openssl version
 
 wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2 &
