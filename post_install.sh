@@ -17,7 +17,8 @@ tar xf libtool-2.4.6.tar.xz
 cd libtool-2.4.6
 ls -lang
 
-./configure
+./configure --prefix~/tmp/libtool/
+make -j4
 
 exit
 
