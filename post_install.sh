@@ -44,17 +44,6 @@ make install
 cd ${HOME2}
 rm -rf c-ares-1.13.0
 
-cd ${HOME2}
-
-ls -lang
-
-zip -9r ccache_cache.zip ./ccache
-mv ccache_cache.zip ./www/
-
-ccache -s
-
-exit
-
 wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
 tar xf jansson-2.11.tar.bz2
 rm jansson-2.11.tar.bz2
@@ -85,6 +74,14 @@ ls -Rlang /tmp/usr/
 
 cd ${HOME2}
 rm -rf nghttp2-1.30.0
+
+
+zip -9r ccache_cache.zip ./ccache
+mv ccache_cache.zip ./www/
+
+ccache -s
+
+exit
 
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
 tar xf apr-1.6.3.tar.bz2
