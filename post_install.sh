@@ -7,7 +7,7 @@ date
 export HOME2=${PWD}
 
 cd /tmp
-wget https://${APP_NAME}.herokuapp.com/usr.zip
+wget https://github.com/tshr20140816/test20171031/raw/master/usr.zip
 
 unzip usr.zip
 
