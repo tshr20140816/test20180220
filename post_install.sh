@@ -75,14 +75,6 @@ ls -Rlang /tmp/usr/
 cd ${HOME2}
 rm -rf nghttp2-1.30.0
 
-
-zip -9r ccache_cache.zip ./ccache
-mv ccache_cache.zip ./www/
-
-ccache -s
-
-exit
-
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
 tar xf apr-1.6.3.tar.bz2
 rm apr-1.6.3.tar.bz2
