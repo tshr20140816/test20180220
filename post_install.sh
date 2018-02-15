@@ -80,6 +80,7 @@ rm -rf apr-util-1.6.1
 
 cd /tmp
 zip -r usr.zip ./usr
+cp usr.zip ~/www/
 ls -lang
 
 cd ~
