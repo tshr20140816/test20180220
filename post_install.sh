@@ -5,6 +5,8 @@ set -x
 date
 
 ls -lang
+pwd
+exit
 
 openssl version
 
