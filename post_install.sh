@@ -20,7 +20,7 @@ ls -lang
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-exit
+cd ~
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
@@ -68,7 +68,7 @@ ls -lang
 
 ./configure  --help
 # ./configure --enable-proxy-http2 --enable-http2 --enable-proxy-http --with-nghttp2=/tmp/usr --prefix=/tmp/usr2
-./configure --prefix=/tmp/usr2 --disable-proxy --disable-ssl
+./configure --prefix=/tmp/usr2 --with-ssl=/tmp/usr --disable-proxy
 
 make -j$(grep -c -e processor /proc/cpuinfo)
 
