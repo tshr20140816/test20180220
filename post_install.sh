@@ -31,7 +31,9 @@ cd httpd/srclib
 ls -lang
 
 git clone --depth 1 https://github.com/apache/apr.git
-cd apr
+
+cd ..
+pwd
 
 # printenv
 
@@ -39,13 +41,6 @@ export PATH="/tmp/libtool/bin:$PATH"
 
 ./buildconf --help
 ./buildconf
-./configure  --help
-
-pwd
-
-cd ../..
-
-pwd
 
 ls -lang
 
