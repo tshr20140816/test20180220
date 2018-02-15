@@ -25,8 +25,6 @@ cd ${HOME2}
 
 openssl version
 
-wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2 &
-
 wget https://c-ares.haxx.se/download/c-ares-1.13.0.tar.gz
 tar xf c-ares-1.13.0.tar.gz
 rm c-ares-1.13.0.tar.gz
@@ -39,9 +37,14 @@ make install
 cd ${HOME2}
 rm -rf c-ares-1.13.0
 
-wait
-wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz &
-# wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
+cd ${HOME2}
+
+zip -9r ccache_cache.zip ./ccache
+mv ccache_cache.zip ./www/
+
+exit
+
+wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
 tar xf jansson-2.11.tar.bz2
 rm jansson-2.11.tar.bz2
 cd jansson-2.11
@@ -55,8 +58,7 @@ rm -rf jansson-2.11
 
 export PATH="/tmp/usr/bin:$PATH"
 
-wait
-# wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
+wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
 rm nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
@@ -97,9 +99,9 @@ make install
 cd ${HOME2}
 rm -rf apr-util-1.6.1
 
-cd /tmp
-zip -r usr.zip ./usr
-cp usr.zip ${HOME2}/www/
+# cd /tmp
+# zip -r usr.zip ./usr
+# cp usr.zip ${HOME2}/www/
 
 cd ${HOME2}
 
