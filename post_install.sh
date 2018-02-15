@@ -11,7 +11,7 @@ wget https://www.samba.org/ftp/ccache/ccache-3.3.4.tar.gz
 tar xf ccache-3.3.4.tar.gz
 cd ccache-3.3.4
 ./configure --prefix=${HOME2}/usr/local
-make -j$(grep -c -e processor /proc/cpuinfo)
+time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}/usr/local/bin
@@ -32,7 +32,7 @@ rm c-ares-1.13.0.tar.gz
 cd c-ares-1.13.0
 ./configure --help
 ./configure --prefix=/tmp/usr
-make -j$(grep -c -e processor /proc/cpuinfo)
+time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}
@@ -53,7 +53,7 @@ rm jansson-2.11.tar.bz2
 cd jansson-2.11
 ./configure --help
 ./configure --prefix=/tmp/usr
-make -j$(grep -c -e processor /proc/cpuinfo)
+time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}
@@ -70,7 +70,7 @@ cd nghttp2-1.30.0
 LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
 JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
 ./configure --prefix=/tmp/usr --disable-examples
-make -j$(grep -c -e processor /proc/cpuinfo)
+time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 ls -Rlang /tmp/usr/
@@ -84,7 +84,7 @@ rm apr-1.6.3.tar.bz2
 cd apr-1.6.3
 ./configure --help
 ./configure --prefix=/tmp/usr
-make -j$(grep -c -e processor /proc/cpuinfo)
+time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}
@@ -96,7 +96,7 @@ rm apr-util-1.6.1.tar.bz2
 cd apr-util-1.6.1
 ./configure --help
 ./configure --prefix=/tmp/usr --with-apr=/tmp/usr
-make -j$(grep -c -e processor /proc/cpuinfo)
+time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}
