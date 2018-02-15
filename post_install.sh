@@ -78,6 +78,14 @@ make install
 cd ~
 rm -rf apr-util-1.6.1
 
+cd /tmp
+zip -r usr.zip ./usr
+ls -lang
+
+cd ~
+
+exit
+
 wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz
 tar xf httpd-2.4.29.tar.gz
 rm httpd-2.4.29.tar.gz
