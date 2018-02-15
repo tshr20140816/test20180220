@@ -13,6 +13,8 @@ date
 
 wget http://ftp.jaist.ac.jp/pub/GNU/libtool/libtool-2.4.6.tar.xz
 tar xf libtool-2.4.6.tar.xz
+
+cd libtool-2.4.6
 ls -lang
 
 exit
