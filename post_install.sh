@@ -20,8 +20,7 @@ cd nghttp2-1.30.0
 make -j4
 make install
 
-ls -lang /tmp/usr/
-ls -lang /tmp/usr/bin
+ls -Rlang /tmp/usr/
 
 exit
 
