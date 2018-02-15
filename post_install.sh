@@ -16,7 +16,7 @@ tar xf openssl-1.0.2n.tar.gz
 cd openssl-1.0.2n
 ls -lang
 ./config --help
-./config --prefix=/tmp/usr --mandir=/dev/null
+./config --prefix=/tmp/usr
 # make -j$(grep -c -e processor /proc/cpuinfo)
 make -j8
 make install
