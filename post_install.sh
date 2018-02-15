@@ -5,6 +5,7 @@ set -x
 date
 
 export HOME2=${PWD}
+export PATH="${HOME2}/usr/local/bin:${PATH}"
 
 wget https://www.samba.org/ftp/ccache/ccache-3.3.4.tar.gz
 tar xf ccache-3.3.4.tar.gz
@@ -38,6 +39,8 @@ cd ${HOME2}
 rm -rf c-ares-1.13.0
 
 cd ${HOME2}
+
+ls -lang
 
 zip -9r ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
