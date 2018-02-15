@@ -71,7 +71,7 @@ tar xf apr-util-1.6.1.tar.bz2
 rm apr-util-1.6.1.tar.bz2
 cd apr-util-1.6.1
 ./configure --help
-./configure --prefix=/tmp/usr
+./configure --prefix=/tmp/usr --with-apr=/tmp/usr
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
