@@ -14,8 +14,9 @@ date
 wget https://www.openssl.org/source/openssl-1.0.2n.tar.gz
 tar xf openssl-1.0.2n.tar.gz
 cd openssl-1.0.2n
-./configure --help
-./configure --prefix=/tmp/usr/
+ls -lang
+./config --help
+./config --prefix=/tmp/usr/
 make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
