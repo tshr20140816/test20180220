@@ -72,7 +72,7 @@ make install
 cd ${HOME2}
 rm -rf jansson-2.11
 
-zip -9r ccache_cache.zip ./ccache
+zip -9rq ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
 ccache -s
 
