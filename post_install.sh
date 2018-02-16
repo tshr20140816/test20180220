@@ -49,7 +49,28 @@ time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}
-# rm -rf c-ares-1.13.0
+rm -rf c-ares-1.13.0
+
+ccache -s
+
+wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
+tar xf jansson-2.11.tar.bz2
+rm jansson-2.11.tar.bz2
+cd jansson-2.11
+./configure --help
+wget https://${APP_NAME}.herokuapp.com/config.cache.jansson-2.11
+if [ -e config.cache.jansson-2.11 ]; then
+  cp config.cache.c-ares-1.13.0 ${HOME2}/www/config.cache.jansson-2.11
+  CONFIG_SITE="./config.cache.jansson-2.11" ./configure --prefix=/tmp/usr --config-cache
+else
+  ./configure --prefix=/tmp/usr --config-cache
+  mv config.cache ${HOME2}/www/config.cache.jansson-2.11
+fi
+time make -j$(grep -c -e processor /proc/cpuinfo)
+make install
+
+cd ${HOME2}
+rm -rf jansson-2.11
 
 zip -9r ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
@@ -57,18 +78,6 @@ ccache -s
 
 date
 exit
-
-wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
-tar xf jansson-2.11.tar.bz2
-rm jansson-2.11.tar.bz2
-cd jansson-2.11
-./configure --help
-./configure --prefix=/tmp/usr
-time make -j$(grep -c -e processor /proc/cpuinfo)
-make install
-
-cd ${HOME2}
-rm -rf jansson-2.11
 
 export PATH="/tmp/usr/bin:$PATH"
 
