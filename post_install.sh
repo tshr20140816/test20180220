@@ -147,6 +147,8 @@ make install
 
 ls -Rlang /tmp/usr2
 
+ldd /tmp/usr2/modules/mod_proxy_http2.so
+
 cp /tmp/usr2/modules/mod_proxy_http2.so ${HOME}/
 
 date
