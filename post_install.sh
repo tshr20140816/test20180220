@@ -80,7 +80,7 @@ rm nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
 ./configure --help
 wget https://${APP_NAME}.herokuapp.com/config.cache.nghttp2-1.30.0
-if [ -e config.cache.nghttp2-1.30.0a ]; then
+if [ -e config.cache.nghttp2-1.30.0 ]; then
   cp config.cache.nghttp2-1.30.0 ${HOME2}/www/config.cache.nghttp2-1.30.0
   LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -lcares" \
   JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
