@@ -37,12 +37,12 @@ tar xf c-ares-1.13.0.tar.gz
 rm c-ares-1.13.0.tar.gz
 cd c-ares-1.13.0
 ./configure --help
-./configure --prefix=/tmp/usr
+./configure --prefix=/tmp/usr --cache-config
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
 cd ${HOME2}
-rm -rf c-ares-1.13.0
+# rm -rf c-ares-1.13.0
 
 zip -9r ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
