@@ -88,7 +88,7 @@ if [ -e config.cache.nghttp2-1.30.0a ]; then
   JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
   CONFIG_SITE="./config.cache.nghttp2-1.30.0" ./configure --prefix=/tmp/usr --disable-examples
 else
-  LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
+  LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -lcares" \
   JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
   ./configure --prefix=/tmp/usr --config-cache --disable-examples
   mv config.cache ${HOME2}/www/config.cache.nghttp2-1.30.0
