@@ -38,7 +38,7 @@ rm c-ares-1.13.0.tar.gz
 cd c-ares-1.13.0
 ./configure --help
 ./configure --prefix=/tmp/usr --config-cache
-ls -lang
+mv config.cache ${HOME2}/www/config.cache.c-ares-1.13.0
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
