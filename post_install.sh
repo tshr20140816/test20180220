@@ -98,7 +98,7 @@ ls -Rlang /tmp/usr/
 cd ${HOME2}
 rm -rf nghttp2-1.30.0
 
-zip -9r ccache_cache.zip ./ccache
+zip -9rq ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
   
 exit
