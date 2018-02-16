@@ -74,6 +74,8 @@ rm -rf jansson-2.11
 
 ccache -s
 
+cd /tmp
+
 export PATH="/tmp/usr/bin:$PATH"
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
