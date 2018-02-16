@@ -49,6 +49,7 @@ zip -9r ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
 ccache -s
 
+date
 exit
 
 wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
