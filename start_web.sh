@@ -5,7 +5,7 @@ set -x
 export TZ=JST-9
 
 ls -lang
-mkdir /tmp/usr/lib
+mkdir -p /tmp/usr/lib
 cp libnghttp2.so.14 /tmp/usr/lib/
 
 ldd ./mod_proxy_http2.so
