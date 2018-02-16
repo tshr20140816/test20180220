@@ -5,24 +5,26 @@ set -x
 date
 
 export HOME2=${PWD}
-export PATH="${HOME2}/usr/local/bin:${PATH}"
+export PATH="/tmp/usr/bin:${PATH}"
+
+cd /tmp
 
 wget https://www.samba.org/ftp/ccache/ccache-3.3.4.tar.gz
 tar xf ccache-3.3.4.tar.gz
 cd ccache-3.3.4
-./configure --prefix=${HOME2}/usr/local
+./configure --prefix=/tmp/usr
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ${HOME2}/usr/local/bin
+cd /tmp/usr/bin
 ln -s ccache gcc
 ln -s ccache g++
 ln -s ccache cc
 ln -s ccache c++
 
-export CCACHE_DIR=${HOME2}/ccache
+export CCACHE_DIR=/tmp/ccache
 
-cd ${HOME2}
+cd /tmp
 
 wget https://${APP_NAME}.herokuapp.com/ccache_cache.zip
 unzip -q ccache_cache.zip
@@ -48,7 +50,7 @@ fi
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ${HOME2}
+cd /tmp
 rm -rf c-ares-1.13.0
 
 ccache -s
@@ -69,14 +71,10 @@ fi
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ${HOME2}
+cd /tmp
 rm -rf jansson-2.11
 
 ccache -s
-
-cd /tmp
-
-export PATH="/tmp/usr/bin:$PATH"
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
@@ -102,12 +100,12 @@ make install
 
 # ls -Rlang /tmp/usr/
 
-cd ${HOME2}
+cd /tmp
 rm -rf nghttp2-1.30.0
 
 time zip -9rq ccache_cache.zip ./ccache
 ls -lang ccache_cache.zip
-mv ccache_cache.zip ./www/
+mv ccache_cache.zip ${HOME2}/www/
 ccache -s
 
 date
