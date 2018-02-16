@@ -26,8 +26,8 @@ export CCACHE_DIR=/tmp/ccache
 
 cd /tmp
 
-wget https://${APP_NAME}.herokuapp.com/ccache_cache.zip
-unzip -q ccache_cache.zip
+# wget https://${APP_NAME}.herokuapp.com/ccache_cache.zip
+# unzip -q ccache_cache.zip
 
 ccache -s
 ccache -z
