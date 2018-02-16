@@ -87,6 +87,13 @@ make install
 cd ${HOME2}
 rm -rf apr-1.6.3
 
+cd ${HOME2}
+
+zip -9r ccache_cache.zip ./ccache
+mv ccache_cache.zip ./www/
+  
+exit
+
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2
 tar xf apr-util-1.6.1.tar.bz2
 rm apr-util-1.6.1.tar.bz2
