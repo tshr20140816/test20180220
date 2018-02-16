@@ -6,6 +6,6 @@ $stdin = fopen('php://stdin', 'r');
 ob_implicit_flush(true);
 
 while ($line = fgets($stdin)) {
-  echo $line;
+  error_log($line);
 }
 ?>
