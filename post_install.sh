@@ -37,8 +37,14 @@ tar xf c-ares-1.13.0.tar.gz
 rm c-ares-1.13.0.tar.gz
 cd c-ares-1.13.0
 ./configure --help
-./configure --prefix=/tmp/usr --config-cache
-mv config.cache ${HOME2}/www/config.cache.c-ares-1.13.0
+wget https://${APP_NAME}.herokuapp.com/config.cache.c-ares-1.13.0
+if [ -e config.cache.c-ares-1.13.0 ]; then
+  cp config.cache.c-ares-1.13.0 ${HOME2}/www/config.cache.c-ares-1.13.0
+  CONFIG_SITE="./config.cache.c-ares-1.13.0" ./configure --prefix=/tmp/usr --config-cache
+else
+  ./configure --prefix=/tmp/usr --config-cache
+  mv config.cache ${HOME2}/www/config.cache.c-ares-1.13.0
+fi
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
