@@ -86,11 +86,13 @@ if [ -e config.cache.nghttp2-1.30.0 ]; then
   cp config.cache.nghttp2-1.30.0 ${HOME2}/www/config.cache.nghttp2-1.30.0
   LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -lcares" \
   JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
-  CONFIG_SITE="./config.cache.nghttp2-1.30.0" ./configure --prefix=/tmp/usr --disable-examples
+  CONFIG_SITE="./config.cache.nghttp2-1.30.0" ./configure --prefix=/tmp/usr --disable-examples --disable-dependency-tracking \
+  --enable-lib-only
 else
   LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -lcares" \
   JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
-  ./configure --prefix=/tmp/usr --config-cache --disable-examples
+  ./configure --prefix=/tmp/usr --config-cache --disable-examples --disable-dependency-tracking \
+  --enable-lib-only
   mv config.cache ${HOME2}/www/config.cache.nghttp2-1.30.0
 fi
 time make -j$(grep -c -e processor /proc/cpuinfo)
