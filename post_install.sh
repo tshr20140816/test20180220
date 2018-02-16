@@ -4,6 +4,8 @@ set -x
 
 date
 
+chmod 777 start_web.sh
+
 export HOME2=${PWD}
 export PATH="/tmp/usr/bin:${PATH}"
 
