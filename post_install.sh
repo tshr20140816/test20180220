@@ -28,7 +28,7 @@ cd /tmp
 
 wget https://${APP_NAME}.herokuapp.com/ccache_cache.zip
 unzip -q ccache_cache.zip
-
+mv ccache_cache.zip ${HOME2}/www/
 ccache -s
 ccache -z
 
@@ -127,9 +127,9 @@ make install
 cd /tmp
 rm -rf apr-util-1.6.1
 
-time zip -9rq ccache_cache.zip ./ccache
-ls -lang ccache_cache.zip
-mv ccache_cache.zip ${HOME2}/www/
+# time zip -9rq ccache_cache.zip ./ccache
+# ls -lang ccache_cache.zip
+# mv ccache_cache.zip ${HOME2}/www/
 ccache -s
 
 date
@@ -140,8 +140,10 @@ tar xf httpd-2.4.29.tar.gz
 rm httpd-2.4.29.tar.gz
 cd httpd-2.4.29
 ./configure --help
-./configure --prefix=/tmp/usr --with-apr=/tmp/usr --enable-ssl --enable-http2 --with-nghttp2=/tmp/usr
+./configure --prefix=/tmp/usr2 --with-apr=/tmp/usr --enable-ssl --enable-http2 --with-nghttp2=/tmp/usr
 time make -j$(grep -c -e processor /proc/cpuinfo)
-# make install
+make install
+
+ls -Rlang /tmp/usr2
 
 date
