@@ -40,7 +40,7 @@ cd c-ares-1.13.0
 wget https://${APP_NAME}.herokuapp.com/config.cache.c-ares-1.13.0
 if [ -e config.cache.c-ares-1.13.0 ]; then
   cp config.cache.c-ares-1.13.0 ${HOME2}/www/config.cache.c-ares-1.13.0
-  CONFIG_SITE="./config.cache.c-ares-1.13.0" ./configure --prefix=/tmp/usr --config-cache
+  CONFIG_SITE="./config.cache.c-ares-1.13.0" ./configure --prefix=/tmp/usr
 else
   ./configure --prefix=/tmp/usr --config-cache
   mv config.cache ${HOME2}/www/config.cache.c-ares-1.13.0
@@ -60,8 +60,8 @@ cd jansson-2.11
 ./configure --help
 wget https://${APP_NAME}.herokuapp.com/config.cache.jansson-2.11
 if [ -e config.cache.jansson-2.11 ]; then
-  cp config.cache.c-ares-1.13.0 ${HOME2}/www/config.cache.jansson-2.11
-  CONFIG_SITE="./config.cache.jansson-2.11" ./configure --prefix=/tmp/usr --config-cache
+  cp config.cache.jansson-2.11 ${HOME2}/www/config.cache.jansson-2.11
+  CONFIG_SITE="./config.cache.jansson-2.11" ./configure --prefix=/tmp/usr
 else
   ./configure --prefix=/tmp/usr --config-cache
   mv config.cache ${HOME2}/www/config.cache.jansson-2.11
@@ -72,13 +72,6 @@ make install
 cd ${HOME2}
 rm -rf jansson-2.11
 
-zip -9rq ccache_cache.zip ./ccache
-mv ccache_cache.zip ./www/
-ccache -s
-
-date
-exit
-
 export PATH="/tmp/usr/bin:$PATH"
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
@@ -86,10 +79,18 @@ tar xf nghttp2-1.30.0.tar.xz
 rm nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
 ./configure --help
-
-LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
-JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
-./configure --prefix=/tmp/usr --disable-examples
+wget https://${APP_NAME}.herokuapp.com/config.cache.nghttp2-1.30.0
+if [ -e config.cache.nghttp2-1.30.0 ]; then
+  cp config.cache.nghttp2-1.30.0 ${HOME2}/www/config.cache.nghttp2-1.30.0
+  LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
+  JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
+  CONFIG_SITE="./config.cache.nghttp2-1.30.0" ./configure --prefix=/tmp/usr --disable-examples
+else
+  LIBCARES_CFLAGS="-I/tmp/usr/include" LIBCARES_LIBS="-L/tmp/usr/lib -ljansson" \
+  JANSSON_CFLAGS="-I/tmp/usr/include" JANSSON_LIBS="-L/tmp/usr/lib -ljansson" \
+  ./configure --prefix=/tmp/usr --config-cache --disable-examples
+  mv config.cache ${HOME2}/www/config.cache.nghttp2-1.30.0
+fi
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
@@ -100,7 +101,9 @@ rm -rf nghttp2-1.30.0
 
 zip -9rq ccache_cache.zip ./ccache
 mv ccache_cache.zip ./www/
-  
+ccache -s
+
+date
 exit
 
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
