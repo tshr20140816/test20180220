@@ -4,7 +4,7 @@ set -x
 
 date
 
-
+chmod 777 start_web.sh
 
 
 
