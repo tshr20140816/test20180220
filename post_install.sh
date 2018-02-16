@@ -72,6 +72,8 @@ make install
 cd ${HOME2}
 rm -rf jansson-2.11
 
+ccache -s
+
 export PATH="/tmp/usr/bin:$PATH"
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
