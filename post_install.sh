@@ -151,9 +151,9 @@ ls -Rlang /tmp/usr2
 
 ldd /tmp/usr2/modules/mod_proxy_http2.so
 
-cp /tmp/usr/lib/libnghttp2.so.14 ${HOME}/
-cp /tmp/usr2/modules/mod_proxy_http2.so ${HOME}/
+cp /tmp/usr/lib/libnghttp2.so.14 ${HOME2}/
+cp /tmp/usr2/modules/mod_proxy_http2.so ${HOME2}/
 
-ldd ${HOME}/mod_proxy_http2.so
+ldd ${HOME2}/mod_proxy_http2.so
 
 date
