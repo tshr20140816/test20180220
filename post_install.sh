@@ -24,8 +24,8 @@ export CCACHE_DIR=${HOME2}/ccache
 
 cd ${HOME2}
 
-wget https://${APP_NAME}.herokuapp.com/ccache_cache.zip
-unzip ccache_cache.zip
+# wget https://${APP_NAME}.herokuapp.com/ccache_cache.zip
+# unzip ccache_cache.zip
 
 ccache -s
 ccache -z
@@ -43,6 +43,12 @@ make install
 
 cd ${HOME2}
 rm -rf c-ares-1.13.0
+
+zip -9r ccache_cache.zip ./ccache
+mv ccache_cache.zip ./www/
+ccache -s
+
+exit
 
 wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
 tar xf jansson-2.11.tar.bz2
