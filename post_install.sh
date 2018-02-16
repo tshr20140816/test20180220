@@ -140,7 +140,7 @@ tar xf httpd-2.4.29.tar.gz
 rm httpd-2.4.29.tar.gz
 cd httpd-2.4.29
 ./configure --help
-./configure --prefix=/tmp/usr2 --with-apr=/tmp/usr --enable-ssl --enable-http2 --with-nghttp2=/tmp/usr
+./configure --prefix=/tmp/usr2 --with-apr=/tmp/usr --enable-ssl --enable-http2 --enable-proxy-http2 --with-nghttp2=/tmp/usr
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
