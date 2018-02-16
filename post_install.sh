@@ -72,6 +72,8 @@ make install
 cd ${HOME2}
 rm -rf jansson-2.11
 
+cd /tmp
+
 export PATH="/tmp/usr/bin:$PATH"
 
 wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
@@ -92,9 +94,9 @@ else
   mv config.cache ${HOME2}/www/config.cache.nghttp2-1.30.0
 fi
 time make -j$(grep -c -e processor /proc/cpuinfo)
-make install
+# make install
 
-ls -Rlang /tmp/usr/
+# ls -Rlang /tmp/usr/
 
 cd ${HOME2}
 rm -rf nghttp2-1.30.0
