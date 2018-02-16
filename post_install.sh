@@ -103,14 +103,6 @@ make install
 cd /tmp
 rm -rf nghttp2-1.30.0
 
-time zip -9rq ccache_cache.zip ./ccache
-ls -lang ccache_cache.zip
-mv ccache_cache.zip ${HOME2}/www/
-ccache -s
-
-date
-exit
-
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
 tar xf apr-1.6.3.tar.bz2
 rm apr-1.6.3.tar.bz2
@@ -120,15 +112,8 @@ cd apr-1.6.3
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ${HOME2}
+cd /tmp
 rm -rf apr-1.6.3
-
-cd ${HOME2}
-
-zip -9r ccache_cache.zip ./ccache
-mv ccache_cache.zip ./www/
-  
-exit
 
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2
 tar xf apr-util-1.6.1.tar.bz2
@@ -139,18 +124,15 @@ cd apr-util-1.6.1
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
-cd ${HOME2}
+cd /tmp
 rm -rf apr-util-1.6.1
 
-# cd /tmp
-# zip -r usr.zip ./usr
-# cp usr.zip ${HOME2}/www/
+time zip -9rq ccache_cache.zip ./ccache
+ls -lang ccache_cache.zip
+mv ccache_cache.zip ${HOME2}/www/
+ccache -s
 
-cd ${HOME2}
-
-zip -9r ccache_cache.zip ./ccache
-mv ccache_cache.zip ./www/
-  
+date
 exit
 
 wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz
