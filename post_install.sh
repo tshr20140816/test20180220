@@ -13,6 +13,10 @@ cd /tmp
 
 openssl version
 
+wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2 &
+wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2 &
+wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz &
+
 wget https://c-ares.haxx.se/download/c-ares-1.13.0.tar.gz
 tar xf c-ares-1.13.0.tar.gz
 cd c-ares-1.13.0
@@ -44,7 +48,7 @@ make install
 
 cd /tmp
 
-wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
+# wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2
 tar xf apr-1.6.3.tar.bz2
 cd apr-1.6.3
 ./configure --prefix=/tmp/usr
@@ -53,7 +57,7 @@ make install
 
 cd /tmp
 
-wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2
+# wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2
 tar xf apr-util-1.6.1.tar.bz2
 cd apr-util-1.6.1
 ./configure --prefix=/tmp/usr --with-apr=/tmp/usr
@@ -62,7 +66,7 @@ make install
 
 cd /tmp
 
-wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz
+# wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz
 tar xf httpd-2.4.29.tar.gz
 cd httpd-2.4.29
 ./configure --prefix=/tmp/usr2 \
