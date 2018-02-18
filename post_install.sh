@@ -9,6 +9,9 @@ chmod 777 start_web.sh
 export HOME2=${PWD}
 export PATH="/tmp/usr/bin:${PATH}"
 
+export CFLAGS="-march=native -O2"
+export CXXFLAGS="$CFLAGS"
+
 cd /tmp
 
 openssl version
