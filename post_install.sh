@@ -13,6 +13,8 @@ cd /tmp
 
 openssl version
 
+wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2 &
+wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz &
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-1.6.3.tar.bz2 &
 wget http://ftp.tsukuba.wide.ad.jp/software/apache//apr/apr-util-1.6.1.tar.bz2 &
 wget http://ftp.jaist.ac.jp/pub/apache//httpd/httpd-2.4.29.tar.gz &
@@ -24,9 +26,11 @@ cd c-ares-1.13.0
 time make -j$(grep -c -e processor /proc/cpuinfo)
 make install
 
+wait
+
 cd /tmp
 
-wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
+# wget http://www.digip.org/jansson/releases/jansson-2.11.tar.bz2
 tar xf jansson-2.11.tar.bz2
 cd jansson-2.11
 ./configure --prefix=/tmp/usr
@@ -35,7 +39,7 @@ make install
 
 cd /tmp
 
-wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
+# wget https://github.com/nghttp2/nghttp2/releases/download/v1.30.0/nghttp2-1.30.0.tar.xz
 tar xf nghttp2-1.30.0.tar.xz
 cd nghttp2-1.30.0
 
