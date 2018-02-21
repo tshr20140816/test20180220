@@ -29,7 +29,7 @@ cd /tmp
 git clone --depth 1 https://github.com/google/brotli
 cd brotli
 ./configure-cmake --help
-./configure-cmake
+./configure-cmake --prefix=/tmp/usr
 make -j2
 
 date
