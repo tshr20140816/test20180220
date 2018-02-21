@@ -31,5 +31,8 @@ cd brotli
 ./configure-cmake --help
 ./configure-cmake --prefix=/tmp/usr
 make -j2
+make install
+
+whereis bro
 
 date
