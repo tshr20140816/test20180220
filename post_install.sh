@@ -20,7 +20,7 @@ mkdir -m 777 -p /tmp/usr
 
 cd /tmp/usr
 wget https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.tar.gz
-tar xf --strip=1 cmake-3.10.2-Linux-x86_64.tar.gz
+tar xf cmake-3.10.2-Linux-x86_64.tar.gz -C ./ --strip=1 
 ls -lang
 
 cd /tmp
