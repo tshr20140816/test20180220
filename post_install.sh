@@ -35,4 +35,6 @@ make install
 
 ls -lang /tmp/usr/bin/
 
+brotli --help
+
 date
