@@ -33,6 +33,6 @@ cd brotli
 make -j2
 make install
 
-whereis bro
+ls -lang /tmp/usr/bin/
 
 date
