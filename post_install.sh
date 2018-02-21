@@ -17,7 +17,7 @@ rm tt-rss.css
 
 git clone --depth 1 https://github.com/google/brotli
 cd brotli
-./configure-cmake
+./bootstrap
 # make -j2
 
 date
